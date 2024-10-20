@@ -61,8 +61,14 @@ int main(int argc, char *argv[])
     }
 
     int finish = atoi(argv[1]), cars = atoi(argv[2]); // Se convierte la entrada de argumentos a enteros
-    leaderboard = new int[cars];                      // Se asigna memoria para almacenar los resultados de la carrera
-    thread car[cars];                                 // Se crea un array de hebras para los autos
+    if (finish < 1 || cars < 1)
+    {
+        cout << "Error: Debe ingresar enteros positivos mayores o iguales a 1.\n";
+        return 1;
+    }
+
+    leaderboard = new int[cars]; // Se asigna memoria para almacenar los resultados de la carrera
+    thread car[cars];            // Se crea un array de hebras para los autos
 
     cout << "Distancia total carrera: " << finish << " metros" << endl;
     cout << "---------------------------------------" << endl;
