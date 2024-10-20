@@ -1,30 +1,55 @@
-# SSOO_Tarea_1
+# Simulador de carrera de autos usando multihebras
+Este programa simula una carrera de autos utilizando programación multihebras en C++. Cada auto es ejecutado en una hebra separada y la carrera finaliza cuando todos los autos han recorrido la distancia indicada.
 
-#README
+## Requisitos:
+- Sistema operativo Linux.
+- Compilador GNU g++. En caso de no tenerlo instalado. Ejecutar los siguientes comandos:
 
-"Carreras usando Threads en c++"  
+        sudo apt-get update
+        sudo apt-get install g++
 
-##Verificar que Make este instalado, de lo contrario usar :
->sudo apt-get update
->sudo apt-get install make
+- Makefile para la compilación. En caso de no tenerlo instalado. Ejecutar los siguientes comandos:
 
-##Verificar que g++ este presente en el equipo, d elo contrario utilizar los comandos:
->sudo apt-get update
->sudo apt-get install g++
+        sudo apt-get update
+        sudo apt-get install make
 
 
-##Instalacion:
+## Instalacion y ejecución:  
+1. Clonar repositorio:
 
-1.Descargar archivos carrerasThreadsFinal.cpp y Makefile   
+        git clone https://github.com/Handradus/SSOO_Tarea_1.git
 
-2.Guardar en la misma carpeta sin cambiar nombres  
+2. Compilar archivo usando el siguiente comando:
 
-3.Ejecutar en la shell el comando "make"  
+        make
 
-4.Ejecutar comando "make clean"  
+3. Ejecutar ingresando por parámetro la distancia total a recorrer (metros) y la cantidad de competidores (autos), la cual deben ser números enteros mayores o iguales a 1:
 
-5.Ejecutar en shell el comando "./carrerasThreadsFinal [metros] [autos]", donde [metros] debe ser un entero para simular la distancia a recorrer y [autos] cantidad de competidores, igualmente un entero.  
+        ./carrerasThreadsFinal <metros> <autos>
 
-        >Ejemplo ./carrerasThreadsFinal 100 5  
+### Ejemplo de ejecución:
 
-6.Esperar a que la carrera finalice!
+    make
+    ./carrerasThreadsFinal 100 3
+
+    Distancia total carrera: 100 metros
+    ---------------------------------------
+    Auto1 avanza 9 metros (total: 9 metros)
+    Auto2 avanza 1 metros (total: 1 metros)
+    Auto1 avanza 10 metros (total: 19 metros)
+    Auto2 avanza 1 metros (total: 2 metros)
+    
+    ...
+    
+    Auto1 avanza 7 metros y termina la carrera en el lugar 1!
+    Auto2 avanza 9 metros (total: 94 metros)
+    Auto0 avanza 7 metros (total: 98 metros)
+    Auto0 avanza 6 metros y termina la carrera en el lugar 2!
+    Auto2 avanza 1 metros (total: 95 metros)
+    Auto2 avanza 9 metros y termina la carrera en el lugar 3!
+
+    Lugar   Auto
+    ---------------
+    1       Auto1
+    2       Auto0
+    3       Auto2
